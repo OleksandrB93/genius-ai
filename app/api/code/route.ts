@@ -6,7 +6,6 @@ import { ChatCompletionRequestMessage, Configuration, OpenAIApi } from "openai";
 // import { incrementApiLimit, checkApiLimit } from "@/lib/api-limit";
 
 const configuration = new Configuration({
-  // apiKey: "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"
   apiKey: process.env.OPEN_API_KEY,
 });
 

@@ -2,20 +2,17 @@
 
 import * as z from "zod";
 import axios from "axios";
-import { Music } from "lucide-react";
+import { Video } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 // import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
-// import { BotAvatar } from "@/components/bot-avatar";
-// import { Heading } from "@/components/heading";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
-// import { UserAvatar } from "@/components/user-avatar";
-// import { useProModal } from "@/hooks/use-pro-modal";
+import { useProModal } from "@/hooks/useProModal";
 
 import { formSchema } from "./constants";
 import Heading from "@/components/Heading";
@@ -24,7 +21,7 @@ import { Loader } from "@/components/Loader";
 
 const VideoPage = () => {
   const router = useRouter();
-  // const proModal = useProModal();
+  const proModal = useProModal();
   const [video, setVideo] = useState<string>();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -46,7 +43,7 @@ const VideoPage = () => {
       form.reset();
     } catch (error: any) {
       if (error?.response?.status === 403) {
-        // proModal.onOpen();
+        proModal.onOpen();
       } else {
         // toast.error("Something went wrong.");
       }
@@ -60,7 +57,7 @@ const VideoPage = () => {
       <Heading
         title="Video"
         description="Turn your prompt into video."
-        icon={Music}
+        icon={Video}
         iconColor="text-orange-700"
         bgColor="bg-orange-700/10"
       />

@@ -8,14 +8,11 @@ import { useState } from "react";
 // import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
-// import { BotAvatar } from "@/components/bot-avatar";
-// import { Heading } from "@/components/heading";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
-// import { UserAvatar } from "@/components/user-avatar";
-// import { useProModal } from "@/hooks/use-pro-modal";
+import { useProModal } from "@/hooks/useProModal";
 
 import { formSchema } from "./constants";
 import Heading from "@/components/Heading";
@@ -24,7 +21,7 @@ import { Loader } from "@/components/Loader";
 
 const MusicPage = () => {
   const router = useRouter();
-  // const proModal = useProModal();
+  const proModal = useProModal();
   const [music, setMusic] = useState<string>();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -46,7 +43,7 @@ const MusicPage = () => {
       form.reset();
     } catch (error: any) {
       if (error?.response?.status === 403) {
-        // proModal.onOpen();
+        proModal.onOpen();
       } else {
         // toast.error("Something went wrong.");
       }

@@ -31,6 +31,7 @@ export const ProModal = () => {
 
       window.location.href = response.data.url;
     } catch (error) {
+      console.log(error, "STRIP_CLIENT_ERROR");
     //   toast.error("Something went wrong");
     } finally {
       setLoading(false);

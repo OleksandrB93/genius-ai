@@ -16,7 +16,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useProModal } from "@/hooks/useProModal";
-import { tools } from "@/app/(dashboard)/(routes)/dashboard/page"; 
+import { tools } from "@/constants"; 
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
